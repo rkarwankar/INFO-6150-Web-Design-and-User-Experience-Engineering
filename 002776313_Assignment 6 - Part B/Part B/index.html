@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop Watch</title>
+    <style>
+      .timerDisplay {
+        position: relative;
+        width: 92%;
+        background: #ffffff;
+        left: 4%;
+        padding: 40px 0;
+        font-family: "Roboto mono", monospace;
+        color: #0381bb;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 139, 253, 0.25);
+      }
+
+      #time {
+        width: 92%;
+        background: #ffffff;
+        padding: 40px 0;
+        font-family: "Roboto mono", monospace;
+        color: #0381bb;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        text-align: center;
+        border: none;
+      }
+
+      .buttons {
+        width: 90%;
+        margin: 60px auto 0 auto;
+        display: flex;
+        justify-content: space-around;
+      }
+      .buttons button {
+        width: 120px;
+        height: 45px;
+        background-color: #205e94;
+        color: #ffffff;
+        border: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timerDisplay">
+      <input type="text" id="time" name="time" value="00:00:00" disabled />
+    </div>
+    <div class="buttons">
+      <button id="pauseTimer">Pause</button>
+      <button id="startTimer">Start</button>
+      <button id="resetTimer">Reset</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
