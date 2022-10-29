@@ -76,7 +76,7 @@
             } else if (op == "*") {
               result = in1 * in2;
             }
-            $("#result").html("Result: " + result);
+            $("#result").val(result);
             // $("#one").val("");
             // $("#two").val(""); //For clearing the input
           } else {
@@ -149,7 +149,8 @@
           </div>
           <div>
             <h4>
-              <strong><span id="result"></span></strong>
+              <!-- <strong><span id="result"></span></strong> -->Result:
+              <input type="text" value="" id="result" class="field" disabled />
             </h4>
           </div>
         </div>
