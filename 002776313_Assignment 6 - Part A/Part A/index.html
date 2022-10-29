@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator Login</title>
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+    <script>
+      function passvalue() {
+        var fstname = document.getElementById("firstName").value;
+        localStorage.setItem("textvalue", fstname);
+        return false;
+      }
+    </script>
+    <style type="text/css">
+      body {
+        background-color: rgb(129, 233, 233);
+      }
+
+      .allowed-submit {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .valid-input {
+        border: 1px solid green !important;
+      }
+      .invalid-input {
+        border: 1px solid red !important;
+      }
+      .invalid-msg {
+        color: red;
+      }
+      .validation-form h3 {
+        text-align: center;
+        padding: 5px 0px;
+      }
+      .validation-form {
+        position: relative;
+        width: 92%;
+        background: #ffffff;
+        left: 4%;
+        padding: 40px 0;
+        font-family: "Roboto mono", monospace;
+        color: #0381bb;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 139, 253, 0.25);
+      }
+      .validation-form .form-group {
+        margin: 15px 0px;
+      }
+      .validation-form .form-group input {
+        padding: 10px;
+        width: 94%;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid orange;
+      }
+      .validation-form .form-group input:focus {
+        outline: unset;
+      }
+      .validation-form .form-group input[type="submit"] {
+        width: 100%;
+
+        background: orange;
+        font-size: 20px;
+        color: white;
+      }
+      .validation-form .form-group button {
+        padding: 10px;
+        width: 94%;
+        box-sizing: border-box;
+        border: none;
+
+        background-color: rgb(103, 227, 227);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="validation-form">
+      <form method="get" id="myForm" action="calculator.html">
+        <h3>Calculator Login Form</h3>
+
+        <div class="form-group">
+          <input type="text" placeholder="User Name" id="firstName" required />
+          <div class="first-name-msg"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Email" id="email" required />
+          <div class="email-msg"></div>
+        </div>
+
+        <div class="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            required
+          />
+          <div class="password-msg"></div>
+        </div>
+
+        <div class="form-group">
+          <button
+            type="submit"
+            value="Submit"
+            id="submit-btn"
+            onclick="passvalue();"
+            disabled="disabled"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="validate.js"></script>
+  </body>
+</html>

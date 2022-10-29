@@ -1,0 +1,165 @@
+<html>
+  <head>
+    <title>Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="validate.js"></script> -->
+    <style type="text/css">
+      .field {
+        padding: 4px;
+        border-radius: 4px;
+        border: solid black 1px;
+        margin: 3px;
+        font-size: 25px;
+        width: 30%;
+      }
+      .btn {
+        padding: 10px 18px 10px 18px;
+        font-size: 20px;
+        margin-bottom: 2px;
+        color: darkblue;
+        background: gainsboro;
+        border-radius: 6px;
+        width: 32%;
+      }
+      .content {
+        position: relative;
+        background: #ffffff;
+        padding: 40px 0;
+        font-family: "Roboto mono", monospace;
+        color: #0381bb;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 139, 253, 0.25);
+      }
+      .loginname {
+        color: #0381bb;
+        font-size: 30px;
+        text-align: center;
+      }
+      .main {
+        padding: 30px 100px 100px 100px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      //validation for calculator num1
+      s = true;
+
+      $(document).ready(function () {
+        document.getElementById("result1").innerHTML =
+          localStorage.getItem("textvalue");
+        $(".num").click(function () {
+          var value = $(this).html();
+          if (s) {
+            $("#one").val(function (i, val) {
+              return val + value;
+            });
+          }
+          if (!s) {
+            $("#two").val(function (i, val) {
+              return val + value;
+            });
+          }
+        });
+        const calc = (in1, in2, op) => {
+          let result = 0;
+          if (in1 != "" && in2 != "") {
+            if (op == "+") {
+              result = parseInt(in1) + parseInt(in2);
+            } else if (op == "-") {
+              result = in1 - in2;
+            } else if (op == "/") {
+              result = in1 / in2;
+            } else if (op == "*") {
+              result = in1 * in2;
+            }
+            $("#result").html("Result: " + result);
+            // $("#one").val("");
+            // $("#two").val(""); //For clearing the input
+          } else {
+            $("#result").html("Please enter value 1 and value 2.");
+          }
+        };
+        const isValidateInput = (numInput, elementClass) => {
+          //   var validNum = /^[0-9]*$/;
+          const validNum = /^-?\d*\.?\d*$/;
+          let isBool = true;
+          if (numInput.length == 0) {
+            $(elementClass)
+              .addClass("invalid-msg")
+              .text("Value required (Null value)");
+            $(this).addClass("invalid-input");
+            isBool = false;
+          } else if (!validNum.test(numInput)) {
+            $(elementClass)
+              .addClass("invalid-msg")
+              .text("only numerics allowed");
+            $(this).addClass("invalid-input");
+            isBool = false;
+          } else {
+            $(elementClass).empty();
+            $(this).removeClass("invalid-input");
+          }
+          return isBool;
+        };
+        $(".op").click(function () {
+          var in1 = $("#one").val();
+          var in2 = $("#two").val();
+          var op = $(this).html();
+          if (
+            isValidateInput(in1, ".first-num-msg") &&
+            isValidateInput(in2, ".second-num-msg")
+          ) {
+            calc(in1, in2, op);
+          }
+        });
+        $("#one").on("input", function () {
+          var firstNum = $(this).val();
+          isValidateInput(firstNum, ".first-num-msg");
+        });
+        $("#two").on("input", function () {
+          var secondNum = $(this).val();
+          isValidateInput(secondNum, ".second-num-msg");
+        });
+      });
+    </script>
+  </head>
+  <body style="background: rgb(237, 228, 228)">
+    <h1 style="text-align: center; padding-top: 50px; color: #0381bb">
+      Calculator
+    </h1>
+    <div class="loginname">
+      <p>Logged in as: <span id="result1"> </span></p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <div style="margin-bottom: 5px">
+          <div>
+            <span><strong>Value 1:</strong></span>
+            <input type="text" value="" id="one" class="field" />
+            <span class="first-num-msg"></span>
+          </div>
+          <div>
+            <span><strong>Value 2:</strong></span>
+            <input type="text" value="" id="two" class="field" />
+            <span class="second-num-msg"></span>
+          </div>
+          <div>
+            <h4>
+              <strong><span id="result"></span></strong>
+            </h4>
+          </div>
+        </div>
+        <div style="width: 40%">
+          <button class="btn op">+</button>
+          <button class="btn op">-</button>
+          <button class="btn op">/</button>
+          <button class="btn op">*</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
