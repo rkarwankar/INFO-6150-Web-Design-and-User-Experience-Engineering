@@ -1,0 +1,13 @@
+$background-color: white;
+//$background-color: black;
+$font-stack: Serif;
+$dark-color: grey;
+
+@function set-text-color($color){
+    @if(lightness($color)>70){
+        @return #333;
+    }
+    @else{
+        @return #fff;
+    }
+}

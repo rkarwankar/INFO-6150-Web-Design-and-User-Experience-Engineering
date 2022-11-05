@@ -1,0 +1,43 @@
+@mixin backbuttons($css_variables, $prefix: pm) {
+    :root {
+        @each $name, $value in $css_variables {
+            --#{$prefix}-#{$name}: #{$value};
+        }
+    }
+}
+
+@function backbutton($name, $prefix: pm) {
+    @return var(--#{$prefix}-#{$name});
+}
+
+
+@include backbuttons((
+    dsp: block,
+    backgroundcolor: #6b62fd,
+    bdr: none,
+    clr: white,
+    pddng: 15px 32px,
+    txt-align: center,
+    txt-decoration: none,
+    fnt-size: 16px,
+    crsor: pointer,
+    brder-radius: 5px,
+    mrgin-left: 5em,
+    mrgin-right: 5em,
+));
+
+.btn-3 {
+display: backbutton(dsp);
+background-color: backbutton(backgroundcolor);
+border: backbutton(bdr);
+color: backbutton(clr);
+padding: backbutton(pddng);
+text-align: backbutton(txt-align);
+text-decoration: backbutton(txt-decoration);
+font-size: backbutton(fnt-size);
+cursor: backbutton(crsor);
+border-radius: backbutton( brder-radius);
+margin-left: backbutton(mrgin-left);
+margin-right: backbutton( mrgin-right);
+
+}

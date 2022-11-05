@@ -1,0 +1,42 @@
+%btn {
+    display: block;
+    background-color: #6b62fd;
+    border: none;
+    color: set-text-color($background-color);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+.btn-1 {
+    @extend %btn;
+    background-color: #6b62fd;;
+
+    &:hover {
+        background-color: rgb(190, 190, 224);
+    }
+}
+
+.btn-2 {
+    @extend %btn;
+    background-color: #6b62fd;;
+
+    &:hover {
+        background-color: rgb(190, 190, 224);
+    }
+}
+
+.btn-3 {
+    @extend %btn;
+    background-color: #6b62fd;;
+
+    &:hover {
+        background-color: rgb(190, 190, 224);
+    }
+}
+
