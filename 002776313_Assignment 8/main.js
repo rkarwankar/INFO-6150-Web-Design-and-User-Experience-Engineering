@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
+const monmodel = require("./model");
 
 //DB Connection
 mongoose.connect(
@@ -19,27 +20,8 @@ mongoose.connect(
   }
 );
 
-//Schema Creation
 
-// const sch = {
-//   fullname: String,
-//   email: {
-//     type: String,
-//     unique: true,
-//     required: true,
-//     lowercase: true,
-//     trim: true,
-//     validate(value) {
-//       if (!validator.isEmail(value)) {
-//         throw new Error("Email is invalid");
-//       }
-//     },
-//   },
-//   password: String,
-// };
 
-//const monmodel = mongoose.model("Assignment8", sch);
-const monmodel = require("./model");
 //Post Request
 
 app.post("/user/create", async (req, res) => {
