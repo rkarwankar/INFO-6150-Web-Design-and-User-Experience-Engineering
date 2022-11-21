@@ -1,23 +1,20 @@
 export const jobsData = [
   {
-    fullname: "Joe",
-    email: "joe@gmail.com",
-    contact: 9823444567,
-    jobtitle: "SDE",
+    jobtitle: "SDE-1",
     location: "Boston",
+    email: "joeA@gmail.com",
+    contact: 9823444567,
   },
   {
-    fullname: "bob",
-    email: "bob@gmail.com",
-    contact: 9823666567,
-    jobtitle: "Senior Manager",
+    jobtitle: "Front End",
+    location: "NY",
+    email: "joeB@gmail.com",
+    contact: 9823444567,
+  },
+  {
+    jobtitle: "Back End",
     location: "LA",
-  },
-  {
-    fullname: "Maryanna",
-    email: "maryanna@gmail.com",
+    email: "joeC@gmail.com",
     contact: 9823444567,
-    jobtitle: "SDE",
-    location: "Boston",
   },
 ];
