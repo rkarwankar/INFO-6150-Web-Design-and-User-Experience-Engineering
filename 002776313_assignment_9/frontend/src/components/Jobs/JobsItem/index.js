@@ -6,9 +6,9 @@ const JobsItem = ({ item }) => {
     <div className="card">
       <div className="container">
         <h4>
-          <b>{item?.fullname}</b>
+          <b>{item?.jobtitle}</b>
         </h4>
-        <p>{item?.email}</p>
+        <p>{item?.location}</p>
       </div>
     </div>
   );
